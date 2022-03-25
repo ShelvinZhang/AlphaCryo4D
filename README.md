@@ -1,8 +1,6 @@
 AlphaCryo4D v0.1.0-lite Development Version
 
-Simplified version of AlphaCryo4D
-
-Relion 3.1.3 or newer is required. Old-style STAR files from relion 3.0 or earlier should be converted manually by relion_convert_star before using this version of AlphaCryo4D.
+This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. Old-style STAR files from relion 3.0 or earlier should be converted manually by relion_convert_star before using this version of AlphaCryo4D.
 
 ==================================================
 
