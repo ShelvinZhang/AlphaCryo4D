@@ -1,4 +1,6 @@
-AlphaCryo4D v0.1.0e Development Version
+AlphaCryo4D v0.1.0-lite Development Version
+
+Simplified version of AlphaCryo4D
 
 ==================================================
 

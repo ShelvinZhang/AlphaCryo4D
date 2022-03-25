@@ -9,14 +9,14 @@ from scipy import integrate
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--landscape', '-l', type=str, default='output.npy',
-                        help='free energy landscape points mapping by t-sne')
+                        help='free energy landscape mapping by t-sne')
     parser.add_argument('--number', '-n', type=str, default='num.txt',
                         help='particle number file')
-    parser.add_argument('--range', '-r', type=float, default=100.0,
+    parser.add_argument('--range', '-r', type=float, default=[-30,30,-45,20],
                         help='maximum value of the reaction coordinate of free energy landscape')
-    parser.add_argument('--start', '-s', nargs='+', type=float, default=[-80.0, -80.0],
+    parser.add_argument('--start', '-s', nargs='+', type=float, default=[-9.5, -7.7],
                         help='position around start point of transition path')
-    parser.add_argument('--end', '-e', nargs='+', type=float, default=[80.0, 80.0],
+    parser.add_argument('--end', '-e', nargs='+', type=float, default=[7.0, -5.0],
                         help='position around end point of transition path')
     parser.add_argument('--stepmax', '-m', type=int, default=100000,
                         help='maximum steps in String method algorithm')
@@ -36,8 +36,8 @@ if __name__=='__main__':
     l=args.range
     x=np.linspace(args.start[0], args.end[0], 500)
     y=np.linspace(args.start[1], args.end[1], 500)
-    grid_x, grid_y = np.mgrid[-l:l:1000j, -l:l:1000j]   # about from (-80,-80) to (80,80)
-    print("range of free energy landscape: (" + str(-l) + "," + str(l) + ")")
+    grid_x, grid_y = np.mgrid[l[0]:l[1]:1000j, l[2]:l[3]:1000j]   # about from (-80,-80) to (80,80)
+    print("range of free energy landscape: (" + str(l) + ")")
     print("initial transition path: from (" + str(x[0]) + "," + str(y[0]) + ") to (" + str(x[-1]) + "," + str(y[-1]) + ")")
 
     n1 = len(x)
@@ -76,6 +76,7 @@ if __name__=='__main__':
 
     grid_z = Hfunc(grid_x, grid_y)
 
+    '''
     # Main loop
     for nstep in range(nstepmax):
 
@@ -111,18 +112,22 @@ if __name__=='__main__':
 
         if tol <= tol1:
             break
-
+    '''
+    
     # results
     plt.figure(figsize=(5,5))
-    plt.imshow(grid_z.T,extent=[-l,l,-l,l],origin="lower",cmap=plt.cm.Spectral_r)
+    plt.imshow(grid_z.T,extent=l,origin="lower",cmap=plt.cm.Spectral_r)
     plt.colorbar()
 
     plt.scatter(x2[:,0],x2[:,1],c='g',s=z*100)
-    plt.scatter(xi,yi,s=0.1,color='y')
+    #plt.scatter(xi,yi,s=0.1,color='y')
+    for i in np.arange(x2.shape[0]):
+        plt.annotate(i+1,(x2[i,0],x2[i,1]),fontsize=1)
 
     plt.savefig('el.pdf',format='pdf')
     plt.show()
 
+    '''
     print('String method calculation with %d images\n' % n1)
     if tol > tol1:
         print('The calculation failed to converge after %d iterations\n' % nstep)
@@ -136,3 +141,4 @@ if __name__=='__main__':
     print('centers of y: ' + str(yi[index]))
     centers=np.hstack((xi[index].reshape((-1,1)),yi[index].reshape(-1,1)))
     np.save('centers_k.npy', centers)
+    '''

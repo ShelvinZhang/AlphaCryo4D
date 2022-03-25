@@ -18,11 +18,11 @@ os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 np.random.seed(33)   # random seed to reproduce results
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--epoch', '-e', type=int, default=50,
+parser.add_argument('--epoch', '-e', type=int, default=80,
                     help='epochs')
 parser.add_argument('--batchsize', '-b', type=int, default=8,
                     help='batch size')
-parser.add_argument('--validationsize', '-v', type=int, default=800,
+parser.add_argument('--validationsize', '-v', type=int, default=80,
                     help='size of validation data')
 parser.add_argument('--regularization', '-r', type=float, default=0,
                     help='L2 regularization coefficient')
@@ -32,7 +32,7 @@ parser.add_argument('--checkpoint', '-c', type=str, default="checkpoint/check.h5
                     help='path of best model')
 parser.add_argument('--finalmodel', '-f', type=str, default="model/final_model.h5",
                     help='path of final model')
-parser.add_argument('--gpu', '-g', type=str, default="0,1,2,3",
+parser.add_argument('--gpu', '-g', type=str, default="0,1,2,3,4,5,6,7",
                     help='gpu utilization')
 args = parser.parse_args()
 

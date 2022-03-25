@@ -28,9 +28,14 @@ if __name__ == '__main__':
 
     for n,file in enumerate(files):
         if os.path.isfile(file):
+            print(n,file)
             mrc = mf.mrcfile.MrcFile(file,mode='r')
             nmrc = mrc.data
-            fp3d[n] = nmrc
+            nmrc3d = nmrc.copy()
+            nmrc3d -= nmrc3d.mean()
+            nmrc3d /= nmrc3d.std()
+            nmrc3d = (nmrc3d-nmrc3d.min())/(nmrc3d.max()-nmrc3d.min())
+            fp3d[n] = nmrc3d
             nmrc=np.reshape(nmrc,(-1,1))
             scaler = StandardScaler().fit(nmrc) # normalization
             nmrc_norm = np.ravel(scaler.transform(nmrc))
@@ -39,7 +44,7 @@ if __name__ == '__main__':
                 f.write('%d %s\n' % (n+1, file))
 
     os.chdir(pwd)
-    np.save('rdata_3d.npy', fp3d) # output npy file
+    np.save('data_dl.npy', fp3d) # output npy file
     np.save('rdata.npy', fp)
 
     endtime=time.time()
