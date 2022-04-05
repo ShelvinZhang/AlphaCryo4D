@@ -20,7 +20,8 @@ for b in `seq 1 $br`;do
 			#relion_star_handler --i $ur/run01_it080_data.star --select rlnClassNumber --minval $((c-1)) --maxval $((c+1)) --o ${ur}/run01_it080_data_class${c}.star
 			
 			num=`grep mrcs $PWD/$ur/run01_it080_data_class${c}.star |wc -l`
-			if [[ $num != 0 ]]; then
+			#if [[ $num != 0 ]]; then
+			if (( $num > 1000 )); then
 				ln -s $PWD/$ur/run01_it080_data_class${c}.star stars/u${u}_b${b}_c${c}.star   #starfile should be split into different 3D classes
 				ln -s $PWD/$ur/run01_it080_class0$(printf '%02d' $c).mrc maps/u${u}_b${b}_c${c}.mrc
 			fi
