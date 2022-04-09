@@ -3,8 +3,20 @@ AlphaCryo4D v0.1.0-lite Development Version
 This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. Old-style STAR files from relion 3.0 or earlier should be converted manually by relion_convert_star before using this version of AlphaCryo4D.
 
 Scripts running order:  
-1. (optional) relion_star_hander --split
-2. 
+1. (optional) relion_star_handler --split
+2. bootstrap.py (n<=52)
+3. relion_refine --skip_align
+4. link.sh
+5. run_prepare.py
+6. run_resnet.py
+7. run_predict.py
+8. tsne_prepare.py
+9. tsne_rd.py
+10. enumerate.sh
+11. landscape.py
+12. Create a text file with maps' number inside a specified area of the conformational landscape.
+13. vote_prepare.sh
+14. vote.sh --> post_vote.star
 
 ==================================================
 
