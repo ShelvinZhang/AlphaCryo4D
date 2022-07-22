@@ -3,7 +3,7 @@ AlphaCryo4D v0.1.0-lite Development Version
 This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. Old-style STAR files from relion 3.0 or earlier should be converted manually by relion_convert_star before using this version of AlphaCryo4D.
 
 Scripts running order:  
-1. (optional) relion_star_handler --split (and name output file as batch1.star, batch2.star, ...)
+1. (optional) relion_star_handler --split (and name the output files as batch1.star, batch2.star, ...)
 2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group and better be odd)
 3. relion_refine --skip_align (so as to create multiple 3D classes)
 4. link.sh
