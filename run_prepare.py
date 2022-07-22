@@ -46,6 +46,8 @@ if __name__ == '__main__':
     os.chdir(pwd)
     np.save('data_dl.npy', fp3d) # output npy file
     np.save('rdata.npy', fp)
-
+    os.remove('rdata.dat')
+    os.remove('rdata_3d.dat')
+    
     endtime=time.time()
     print('time spent:', endtime-starttime)
