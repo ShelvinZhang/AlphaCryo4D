@@ -4,7 +4,7 @@ This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. 
 
 Scripts running order:  
 1. (optional) relion_star_handler --split
-2. bootstrap.py (n<=52)
+2. bootstrap.py (n<=52 is the number of subsets; g is the number of subset groups  )
 3. relion_refine --skip_align (so as to create multiple 3D classes)
 4. link.sh
 5. run_prepare.py
