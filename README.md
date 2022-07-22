@@ -4,7 +4,7 @@ This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. 
 
 Scripts running order:  
 1. (optional) relion_star_handler --split
-2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group)
+2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group and better be odd)
 3. relion_refine --skip_align (so as to create multiple 3D classes)
 4. link.sh
 5. run_prepare.py
@@ -16,7 +16,7 @@ Scripts running order:
 11. landscape.py
 12. Create a text file with maps' index filled in each line, which are selected inside a specified area of the landscape.
 13. vote_prepare.sh "the text file"
-14. vote.sh (th is the voting threshold, which is recommended <g/2. Finally you can get the post_vote.star for further analysis)
+14. vote.sh (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis)
 
 ==================================================
 
