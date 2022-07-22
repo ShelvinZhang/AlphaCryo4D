@@ -14,7 +14,7 @@ Scripts running order:
 9. tsne_rd.py
 10. enumerate.sh
 11. landscape.py
-12. Create a text file with maps' number inside a specified area of the conformational landscape.
+12. Create a text file with maps' index filled in each line, which are selected inside a specified area of the landscape.
 13. vote_prepare.sh "the text file"
 14. vote.sh --> post_vote.star
 
