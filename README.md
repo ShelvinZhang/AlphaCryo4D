@@ -9,12 +9,12 @@ Scripts running order:
 4. (optional) Do reconstruction and apply a specific mask for each 3D class (not necessary if only use the landscape for classification). 
 5. link.sh
 6. run_prepare.py
-7. run_resnet.py (change values of -e and -v based on the size of your 3D class dataset)
+7. run_resnet.py (Before running, change values of -e and -v based on the size of your 3D class dataset)
 8. run_predict.py
 9. tsne_prepare.py
-10. tsne_rd.py
+10. tsne_rd.py (to get a basic conformational distribution plotted as tsne.png)
 11. enumerate.sh
-12. landscape.py
+12. landscape.py (Before running, change --range according to tsne.png)
 13. Create a text file with maps' index filled in each line, which are selected inside a specified area of the landscape.
 14. vote_prepare.sh "the text file"
 15. vote.sh (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis)
