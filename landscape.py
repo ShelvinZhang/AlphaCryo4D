@@ -45,8 +45,8 @@ if __name__=='__main__':
     plt.imshow(grid_z.T,extent=l,origin="lower",cmap=plt.cm.Spectral_r)
     plt.colorbar()
 
-    plt.scatter(x2[:,0],x2[:,1],c='g',s=z*100)
-    #plt.scatter(xi,yi,s=0.1,color='y')
+    plt.scatter(x2[:,0],x2[:,1],c='g',s=0.1)
+    #plt.scatter(x2[:,0],x2[:,1],c='g',s=z*100)
     for i in np.arange(x2.shape[0]):
         plt.annotate(i+1,(x2[i,0],x2[i,1]),fontsize=1)
 
