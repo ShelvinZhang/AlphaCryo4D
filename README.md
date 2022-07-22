@@ -15,7 +15,7 @@ Scripts running order:
 10. enumerate.sh
 11. landscape.py
 12. Create a text file with maps' number inside a specified area of the conformational landscape.
-13. vote_prepare.sh
+13. vote_prepare.sh "the text file"
 14. vote.sh --> post_vote.star
 
 ==================================================
