@@ -1,5 +1,5 @@
 #!/bin/env python
-
+import os
 import numpy as np
 import argparse
 import linecache
@@ -104,3 +104,7 @@ if __name__ == '__main__':
                     f.write(line)
         f.close()
     print('starfile resampling done')
+    
+    subfile = [file for file in os.listdir() if file.startswith("sub") and file.endswith(".star")]
+    for file in subfile:
+        os.remove(file)
