@@ -12,16 +12,19 @@ if __name__=='__main__':
                         help='free energy landscape mapping by t-sne')
     parser.add_argument('--number', '-n', type=str, default='num.txt',
                         help='particle number file')
-    parser.add_argument('--range', '-r', type=float, default=[-30,30,-45,20],
+    parser.add_argument('--xrange', '-x', type=float, default=[-30,30],
+                        help='maximum value of the reaction coordinate of free energy landscape')
+    parser.add_argument('--yrange', '-y', type=float, default=[-45,20],
                         help='maximum value of the reaction coordinate of free energy landscape')
     parser.add_argument('--interpolate', '-I', type=str, default='linear',
                         help='interplotion method used in free energy landscape plotting, linear or cubic')
     args = parser.parse_args()
 
     # initialize
-    l=args.range
-    grid_x, grid_y = np.mgrid[l[0]:l[1]:1000j, l[2]:l[3]:1000j]   # about from (-80,-80) to (80,80)
-    print("range of free energy landscape: (" + str(l) + ")")
+    lx=args.xrange
+    ly=args.yrange
+    grid_x, grid_y = np.mgrid[lx[0]:lx[1]:1000j, ly[0]:ly[1]:1000j]   # about from (-80,-80) to (80,80)
+    print("range of free energy landscape: (" + str(lx) + str(ly) + ")")
     
     #free energy landscape
     k=1
