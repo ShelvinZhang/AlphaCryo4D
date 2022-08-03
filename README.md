@@ -5,7 +5,7 @@ This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. 
 Scripts running order:  
 1. (optional) relion_star_handler --split (and name the output files as batch1.star, batch2.star, ...)
 2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group and better be odd.)
-3. relion_refine --skip_align (so as to create multiple 3D classes)
+3. relion_refine --tau2_fudge>10 --skip_align (so as to create multiple 3D classes)
 4. (optional) Do reconstruction and apply a specific mask for each 3D class (not necessary if only use the landscape for classification). 
 5. link.sh
 6. run_prepare.py
