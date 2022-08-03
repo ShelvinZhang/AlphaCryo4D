@@ -11,12 +11,11 @@ Scripts running order:
 6. resnet_prepare.py
 7. resnet_train.py (Before running, change values of -e and -v based on the size of your 3D class dataset.)
 8. resnet_predict.py
-9. tsne_prepare.py
-10. tsne_rd.py (to get a basic conformational distribution plotted as tsne.png)
-11. enumerate.sh
-12. landscape.py (Before running, change --range according to tsne.png.)
-13. Create a text file A.txt with maps' index filled in each line, which are selected inside a specified area of the landscape.
-14. vote.sh A.txt th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
+9. tsne.py (to get a basic conformational distribution plotted as tsne.png)
+10. enumerate.sh
+11. landscape.py (Before running, change --range according to tsne.png.)
+12. Create a text file A.txt with maps' index filled in each line, which are selected inside a specified area of the landscape.
+13. vote.sh A.txt th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
 
 ==================================================
 
