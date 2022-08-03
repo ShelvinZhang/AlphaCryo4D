@@ -15,9 +15,8 @@ Scripts running order:
 10. tsne_rd.py (to get a basic conformational distribution plotted as tsne.png)
 11. enumerate.sh
 12. landscape.py (Before running, change --range according to tsne.png.)
-13. Create a text file with maps' index filled in each line, which are selected inside a specified area of the landscape.
-14. vote_prepare.sh "the text file"
-15. vote.sh (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
+13. Create a text file A with maps' index filled in each line, which are selected inside a specified area of the landscape.
+14. vote.sh A th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
 
 ==================================================
 
