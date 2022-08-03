@@ -4,13 +4,22 @@ import time
 import argparse
 from sklearn.preprocessing import StandardScaler
 import numpy as np
+from sklearn.manifold import TSNE
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 if __name__=='__main__':
+    #tsne prepare
     parser = argparse.ArgumentParser()
     parser.add_argument('--data', '-d', type=str, default='rdata.npy',
                         help='raw data')
     parser.add_argument('--feature', '-f', type=str, default='result/feature.npy',
                         help='deep feature')
+    parser.add_argument('--output', '-o', type=str, default='output.npy',
+                        help='output of t-SNE')
+    parser.add_argument('--seed', '-s', type=int, default=0,
+                        help='random seed')
     args = parser.parse_args()
 
     starttime=time.time()
@@ -33,4 +42,24 @@ if __name__=='__main__':
     os.remove("input.dat")
 
     endtime=time.time()
-    print('time spent: ', endtime-starttime)
+    print('time spent for t-SNE_prepare: ', endtime-starttime)
+    print('t-SNE running')
+    
+    #tsne running
+    starttime=time.time()
+
+    np.random.seed(args.seed)
+    data_t = np.load(args.input, mmap_mode='r')
+    tsne=TSNE(n_components=2)
+    X=tsne.fit_transform(data_t)
+    np.save(args.output, X) # output of t-sne
+
+    plt.figure()
+    plt.scatter(X[:, 0], X[:, 1])
+    plt.title('t-SNE')
+    plt.xlabel('RC1')
+    plt.ylabel('RC2')
+    plt.savefig("tsne.png") # save figure
+
+    endtime=time.time()
+    print('time:',endtime-starttime)
