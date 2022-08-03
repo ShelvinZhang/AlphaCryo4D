@@ -8,9 +8,9 @@ Scripts running order:
 3. relion_refine --tau2_fudge>10 --skip_align (so as to create multiple 3D classes)
 4. (optional) Do reconstruction and apply a specific mask for each 3D class (not necessary if only use the landscape for classification). 
 5. link.sh
-6. run_prepare.py
-7. run_resnet.py (Before running, change values of -e and -v based on the size of your 3D class dataset.)
-8. run_predict.py
+6. resnet_prepare.py
+7. resnet_train.py (Before running, change values of -e and -v based on the size of your 3D class dataset.)
+8. resnet_predict.py
 9. tsne_prepare.py
 10. tsne_rd.py (to get a basic conformational distribution plotted as tsne.png)
 11. enumerate.sh
