@@ -3,20 +3,21 @@ AlphaCryo4D v0.1.0-lite Development Version
 This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. Old-style STAR files from relion 3.0 or earlier should be converted manually by relion_convert_star before using this version of AlphaCryo4D.
 
 Scripts running order:  
-1. (optional) relion_star_handler --split
-2. bootstrap.py (n<=52)
-3. relion_refine --skip_align
-4. link.sh
-5. run_prepare.py
-6. run_resnet.py
-7. run_predict.py
-8. tsne_prepare.py
-9. tsne_rd.py
-10. enumerate.sh
-11. landscape.py
-12. Create a text file with maps' number inside a specified area of the conformational landscape.
-13. vote_prepare.sh
-14. vote.sh --> post_vote.star
+1. (optional) relion_star_handler --split (and name the output files as batch1.star, batch2.star, ...)
+2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group and better be odd.)
+3. relion_refine --tau2_fudge>10 --skip_align (so as to create multiple 3D classes)
+4. (optional) Do reconstruction and apply a specific mask for each 3D class (not necessary if only use the landscape for classification). 
+5. link.sh
+6. run_prepare.py
+7. run_resnet.py (Before running, change values of -e and -v based on the size of your 3D class dataset.)
+8. run_predict.py
+9. tsne_prepare.py
+10. tsne_rd.py (to get a basic conformational distribution plotted as tsne.png)
+11. enumerate.sh
+12. landscape.py (Before running, change --range according to tsne.png.)
+13. Create a text file with maps' index filled in each line, which are selected inside a specified area of the landscape.
+14. vote_prepare.sh "the text file"
+15. vote.sh (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
 
 ==================================================
 

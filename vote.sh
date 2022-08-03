@@ -1,6 +1,6 @@
 #!/bin/bash
 th=9
-dir=./ed2rpn2/clustered_stars
+dir=./clustered_stars
 starfile=`ls -d $dir/u*b*c*star | head -n 1`
 imgName=`grep '^_rlnImageName' $starfile | awk '{print substr($2,2)}'`
 

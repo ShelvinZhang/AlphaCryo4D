@@ -1,5 +1,5 @@
 #!/bin/env python
-
+import os
 import time
 import argparse
 from sklearn.preprocessing import StandardScaler
@@ -30,6 +30,7 @@ if __name__=='__main__':
     data_t = np.hstack((data_r, data_d))
     print('shape of t-SNE input: ' + str(data_t.shape))
     np.save("input.npy", data_t)
+    os.remove("input.dat")
 
     endtime=time.time()
     print('time spent: ', endtime-starttime)

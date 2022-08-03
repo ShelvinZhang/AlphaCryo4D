@@ -1,5 +1,5 @@
 #!/bin/env python
-
+import os
 import numpy as np
 import argparse
 import linecache
@@ -14,8 +14,8 @@ if __name__ == '__main__':
     # origin dataset
     parser.add_argument('--star', '-s', type=str, default='batch1.star',
                         help='starfile of a batch of dataset')
-    parser.add_argument('--fold', '-f', type=int, default=3,
-                        help='fold of data augmentation')
+    parser.add_argument('--group_sub', '-g', type=int, default=3,
+                        help='number of data augmentation')
     parser.add_argument('--num_sub', '-n', type=int, default=10,
                         help='number of subset')
     args = parser.parse_args()
@@ -104,3 +104,7 @@ if __name__ == '__main__':
                     f.write(line)
         f.close()
     print('starfile resampling done')
+    
+    subfile = [file for file in os.listdir() if file.startswith("sub") and file.endswith(".star")]
+    for file in subfile:
+        os.remove(file)
