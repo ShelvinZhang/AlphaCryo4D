@@ -20,7 +20,7 @@ if __name__ == '__main__':
     pwd = os.getcwd()
     print(pwd)
     files = list(filter(lambda f: os.path.splitext(f)[1] == '.mrc', os.listdir(path)))
-    #os.chdir(path)
+    os.chdir(path)
     with mf.open(files[0], mode='r') as mrc:
         n = mrc.data.shape[0] # box size of maps
     fp = np.memmap(pwd + '/rdata.dat', dtype='float32', mode='w+', shape=(len(files), n**3))
@@ -43,7 +43,7 @@ if __name__ == '__main__':
             with open(pwd + '/data.log', mode='a+') as f:
                 f.write('%d %s\n' % (n+1, file))
 
-    #os.chdir(pwd)
+    os.chdir(pwd)
     np.save('data_dl.npy', fp3d) # output npy file
     np.save('rdata.npy', fp)
     os.remove('rdata.dat')
