@@ -26,6 +26,8 @@ if __name__ == '__main__':
     fp = np.memmap(pwd + '/rdata.dat', dtype='float32', mode='w+', shape=(len(files), n**3))
     fp3d = np.memmap(pwd + '/rdata_3d.dat', dtype='float32', mode='w+', shape=(len(files), n, n, n))
 
+    os.remove(pwd + '/data.log')
+    os.remove(pwd + '/num.txt')
     for n,file in enumerate(files):
         if os.path.isfile(file):
             print(n,file)
