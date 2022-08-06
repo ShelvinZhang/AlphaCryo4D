@@ -19,6 +19,17 @@ if __name__ == '__main__':
 
     pwd = os.getcwd()
     print(pwd)
+    
+    try:
+        os.remove(pwd + '/data.log')
+    except:
+        pass
+
+    try:
+        os.remove(pwd + '/num.txt')
+    except:
+        pass
+    
     files = list(filter(lambda f: os.path.splitext(f)[1] == '.mrc', os.listdir(path)))
     os.chdir(path)
     with mf.open(files[0], mode='r') as mrc:
@@ -26,8 +37,6 @@ if __name__ == '__main__':
     fp = np.memmap(pwd + '/rdata.dat', dtype='float32', mode='w+', shape=(len(files), n**3))
     fp3d = np.memmap(pwd + '/rdata_3d.dat', dtype='float32', mode='w+', shape=(len(files), n, n, n))
 
-    os.remove(pwd + '/data.log')
-    os.remove(pwd + '/num.txt')
     for n,file in enumerate(files):
         if os.path.isfile(file):
             print(n,file)
