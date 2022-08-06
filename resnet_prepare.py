@@ -19,15 +19,17 @@ if __name__ == '__main__':
 
     pwd = os.getcwd()
     print(pwd)
+    
     try:
         os.remove(pwd + '/data.log')
     except:
         pass
+
     try:
         os.remove(pwd + '/num.txt')
     except:
         pass
-
+    
     files = list(filter(lambda f: os.path.splitext(f)[1] == '.mrc', os.listdir(path)))
     os.chdir(path)
     with mf.open(files[0], mode='r') as mrc:
