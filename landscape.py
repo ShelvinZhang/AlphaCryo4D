@@ -45,7 +45,7 @@ if __name__=='__main__':
     
     # results
     plt.figure(figsize=(5,5))
-    plt.imshow(grid_z.T,extent=l,origin="lower",cmap=plt.cm.Spectral_r)
+    plt.imshow(grid_z.T,extent=[lx[0],lx[1],ly[0],ly[1]],origin="lower",cmap=plt.cm.Spectral_r)
     plt.colorbar()
 
     plt.scatter(x2[:,0],x2[:,1],c='g',s=0.1)
