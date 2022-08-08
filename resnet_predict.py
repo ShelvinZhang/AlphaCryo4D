@@ -21,7 +21,7 @@ DATA_SIZE = np.load(args.data, mmap_mode='r').shape[1]
 BATCH_SIZE = args.batchsize
 
 def feature():
-    from run_resnet import resnet
+    from resnet_train import resnet
     dm=resnet()
     dm.load_weights(args.model, by_name=True)
     dm.summary()
