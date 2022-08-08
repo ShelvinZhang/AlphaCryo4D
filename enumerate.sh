@@ -1,7 +1,7 @@
 #!/bin/bash
 
 datafile='data.log'
-numberfile='num.txt'
+numberfile='num_split.txt'
 
 while read -r line;do
 u=`echo $line | awk -v head="u" -v tail="_b" '{print substr($0, index($0,head)+length(head),index($0,tail)-index($0,head)-length(head))}'`
