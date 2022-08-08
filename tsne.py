@@ -49,7 +49,7 @@ if __name__=='__main__':
     starttime=time.time()
 
     np.random.seed(args.seed)
-    data_t = np.load(args.input, mmap_mode='r')
+    #data_t = np.load("input.npy", mmap_mode='r')
     tsne=TSNE(n_components=2)
     X=tsne.fit_transform(data_t)
     np.save(args.output, X) # output of t-sne
