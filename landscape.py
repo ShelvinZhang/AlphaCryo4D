@@ -12,6 +12,8 @@ if __name__=='__main__':
                         help='free energy landscape mapping by t-sne')
     parser.add_argument('--number', '-n', type=str, default='num.txt',
                         help='particle number file')
+    parser.add_argument('--output', '-o', type=str, default='el.pdf',
+                        help='output colored landscape')
     parser.add_argument('--xrange', '-x', type=float, default=[-30,30],
                         help='maximum value of the reaction coordinate of free energy landscape')
     parser.add_argument('--yrange', '-y', type=float, default=[-45,20],
@@ -34,7 +36,7 @@ if __name__=='__main__':
 
     sum_z = np.sum(z)
     z = z/sum_z
-    g = -k*T*np.log(z)
+    g = [-k*T*np.log(x) if x!=0 else 0 for x in z]
     x2 = x1[0:,:]   # start from volume 0 to end
     if args.interpolate=='linear':
         Hfunc = interpolate.LinearNDInterpolator(x2, g)
@@ -53,5 +55,5 @@ if __name__=='__main__':
     for i in np.arange(x2.shape[0]):
         plt.annotate(i+1,(x2[i,0],x2[i,1]),fontsize=1)
 
-    plt.savefig('el.pdf',format='pdf')
+    plt.savefig(args.output,format='pdf')
     plt.show()
