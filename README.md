@@ -18,7 +18,7 @@ Scripts running order:
 13. vote.sh A.txt th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
 
 Tips for bootstrap:
-If your particle number is N, then after bootstrap you will get n groups and each group contains N/g*n or N/g*n + 1 particles. 
+If your particle number is N, then after bootstrap you will get n groups and each group contains N/g\*n or N/g\*n + 1 particles. 
 
 ==================================================
 
