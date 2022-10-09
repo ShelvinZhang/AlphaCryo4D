@@ -18,7 +18,8 @@ Scripts running order:
 13. vote.sh A.txt *th* (*th* is the voting threshold, which is *(g+1)/2* as recommended. Finally you can get the post_vote.star for further analysis.)
 
 Tips for bootstrap:  
-After step 1, if your particle number of one batch is *N*, then after bootstrap you will get *n* (*n*<=52) groups, each group contains *N/n\*g* or *N/n\*g+1* particles, which is recommended to be 100k or more. If you have *B* batches after step 1, and classified each group into *C* classes in step 3, then you will totally get *B\*C\*n* 3D classes at the most. Empty 3D classes will be removed in step 5.
+After step 1, if your particle number of one batch is *N*, then after bootstrap you will get *n* (*n*<=52) groups, each group contains *N/n\*g* or *N/n\*g+1* particles, which is recommended to be 100K or more. If you have *B* batches after step 1, and classified each group into *C* classes in step 3, then you will totally get *B\*C\*n* 3D classes at the most. Empty 3D classes will be removed in step 5.  
+For example, there is 1M particles, then you can skip step 1 and bootstrap with *n*=50 and *g*=9, do 3D classification with *C*=10. Finally you will get 500 classes and vote with *th*=5.
 
 ==================================================
 
