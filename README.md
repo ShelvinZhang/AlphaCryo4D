@@ -4,18 +4,21 @@ This is a simplified version of AlphaCryo4D. Relion 3.1.3 or newer is required. 
 
 Scripts running order:  
 1. (optional) relion_star_handler --split (and name the output files as batch1.star, batch2.star, ...)
-2. bootstrap.py (n<=52 is the total number of subsets; g is the number of subsets in each group and better be odd.)
+2. bootstrap.py (*n* is the total number of subsets; *g* is the number of subsets in each group and better be odd.)
 3. relion_refine --tau2_fudge>10 --skip_align (so as to create multiple 3D classes)
 4. (optional) Do reconstruction and apply a specific mask for each 3D class (not necessary if only use the landscape for classification). 
-5. link.sh (Before running, change values of br and cr based on step 1 and 3, respectively.)
+5. link.sh (Before running, change values of *br* and *cr* based on step 1 and 3, respectively.)
 6. resnet_prepare.py
-7. resnet_train.py (Before running, change values of -e and -v based on the size of your 3D class dataset.)
+7. resnet_train.py (Before running, change values of *-e* and *-v* based on the size of your 3D class dataset.)
 8. resnet_predict.py
 9. tsne.py (to get a basic conformational distribution plotted as tsne.png)
 10. (optional) enumerate.sh (to generate a num_split.txt file based on specific labels, e.g. name of one dataset)
-11. landscape.py (Before running, change --range according to tsne.png.)
+11. landscape.py (Before running, change *--range* according to tsne.png.)
 12. Create a text file A.txt with maps' index filled in each line, which are selected inside a specified area of the landscape.
-13. vote.sh A.txt th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
+13. vote.sh A.txt *th* (*th* is the voting threshold, which is *(g+1)/2* as recommended. Finally you can get the post_vote.star for further analysis.)
+
+Tips for bootstrap:  
+After step 1, if your particle number of one batch is *N*, then after bootstrap you will get *n* (*n*<=52) groups, each group contains *N/n\*g* or *N/n\*g+1* particles, which is recommended to be 100k or more. If you have *B* batches after step 1, and classified each group into *C* classes in step 3, then you will totally get *B\*C\*n* 3D classes at the most. Empty 3D classes will be removed in step 5.
 
 ==================================================
 
