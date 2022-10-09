@@ -17,6 +17,9 @@ Scripts running order:
 12. Create a text file A.txt with maps' index filled in each line, which are selected inside a specified area of the landscape.
 13. vote.sh A.txt th (th is the voting threshold, which is (g+1)/2 as recommended. Finally you can get the post_vote.star for further analysis.)
 
+Tips for bootstrap:
+If your particle number is N, then after bootstrap you will get n groups and each group contains N/g*n or N/g*n + 1 particles. 
+
 ==================================================
 
 AlphaCryo4D is an open-source free software released under GNU General Public LICENSE that implements 3D classification of single-particle cryo-EM data using deep manifold learning and novel energy-based particle voting methods (originally proposed in the following bioRxiv preprint by the Mao laboratory). AlphaCryo4D v0.1.0c is currently a development version, NOT a stable released version. The authors are currently optimizing the code architecture and adding novel features to the system. The future version of this open-source software will be updated with a user-friendly interface. Users are free to use and modify the source code, providing their compliance with the GPL and that any publication making use of this software shall cite the following reference or its formally published form:
