@@ -21,7 +21,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     filename=args.star
-    fold=args.fold#+1
+    fold=args.group_sub#+1
     num_sub=args.num_sub
 
     x=0 # lines of head
