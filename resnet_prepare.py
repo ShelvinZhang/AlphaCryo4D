@@ -12,7 +12,7 @@ if __name__ == '__main__':
     starttime = time.time()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--folder', '-f', type=str, default='./maps_aligned/',
+    parser.add_argument('--folder', '-f', type=str, default='./maps/',
                         help='folder of maps')
     args = parser.parse_args()
     path = args.folder # the folder of maps
