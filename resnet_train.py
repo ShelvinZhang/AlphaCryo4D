@@ -24,7 +24,7 @@ parser.add_argument('--batchsize', '-b', type=int, default=8,
                     help='batch size')
 parser.add_argument('--validationsize', '-v', type=int, default=80,
                     help='size of validation data')
-parser.add_argument('--regularization', '-r', type=float, default=0,
+parser.add_argument('--regularization', '-r', type=float, default=0.001,
                     help='L2 regularization coefficient')
 parser.add_argument('--data', '-d', type=str, default="data_dl.npy",
                     help='input 3D data')

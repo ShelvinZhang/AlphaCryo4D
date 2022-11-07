@@ -14,9 +14,9 @@ if __name__ == '__main__':
     # origin dataset
     parser.add_argument('--star', '-s', type=str, default='batch1.star',
                         help='starfile of a batch of dataset')
-    parser.add_argument('--group_sub', '-g', type=int, default=3,
+    parser.add_argument('--group_sub', '-g', type=int, default=9,
                         help='number of data augmentation')
-    parser.add_argument('--num_sub', '-n', type=int, default=10,
+    parser.add_argument('--num_sub', '-n', type=int, default=30,
                         help='number of subset')
     args = parser.parse_args()
 
