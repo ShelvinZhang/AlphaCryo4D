@@ -34,7 +34,7 @@ if __name__=='__main__':
 
     sum_z = np.sum(z)
     z = z/sum_z
-    g = [np.log(x) if x!=0 else -10 for x in z]
+    g = [-np.log(x) if x!=0 else 10 for x in z]
     x2 = x1[0:,:]   # start from volume 0 to end
     if args.interpolate=='linear':
         Hfunc = interpolate.LinearNDInterpolator(x2, g)
@@ -45,7 +45,7 @@ if __name__=='__main__':
     
     # results
     plt.figure(figsize=(5,5))
-    plt.imshow(grid_z.T,extent=[lx[0],lx[1],ly[0],ly[1]],origin="lower",cmap=plt.cm.Spectral)
+    plt.imshow(grid_z.T,extent=[lx[0],lx[1],ly[0],ly[1]],origin="lower",cmap=plt.cm.Spectral_r)
     plt.colorbar()
 
     plt.scatter(x2[:,0],x2[:,1],c='g',s=0.1)
